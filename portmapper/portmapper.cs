@@ -1,5 +1,10 @@
 //
-// Copyright 2004 Pete Barber, All Rights Reserved
+// NFS Server
+//
+// Copyright (c) 2004-2012 Pete Barber
+//
+// Licensed under the The Code Project Open License (CPOL.html)
+// http://www.codeproject.com/info/cpol10.aspx 
 //
 using System;
 

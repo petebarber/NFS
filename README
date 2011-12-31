@@ -1,0 +1,36 @@
+This is a Network File System (NFS) Server for Windows/.NET
+It is written in C#.
+
+This was written in 2004 and was the project I used to teach myself 
+C#/.NET programming.  This was when C# 1.0 was available so there
+is no use of generics so ArrayLists were the main data structure
+so requiring boxing.
+
+Please don't be to critical of the code considering this was a self- teaching project.
+
+The reason for writing this (other than to learn C#) was that I was working on a cross-platform program (Windows and many flavours of UNIX).  In order to test my work I need to compile and test on Windows and at least compile with some basic testing on Linux.  The Linux installation was running on VMWare hosted on the Windows' machine.  Rather than copy the source between Windows and Linux I wanted both installations to use the same source hosted on the Windows machine as this was the primary development environment.
+
+The obvious solution was to use the Linux Samba client and share the source directory.  Unfortunately the UNIX build environment for what I was working on created symbolic links that the Samba client didn't support (it might do now).
+
+The easiest solution was then to use an NFS server on Windows which could handle symbolic links.  If I remember correctly, at the time I couldn't find one so I ended up writing this NFS server.
+
+It has no security and only supports NFS V2 over UDP.  To use:
+
+1. On Windows start the NFS server exe: nfs.  This contains a combined:
+	portmapper, mountd and nfsd.
+2. On UNIX (well Linux) use the following mount command:
+	mount -t nfs -o proto=udp -vers=2 <host>:<dir> <mountpoint>
+	e.g. mount -t nfs -o proto=udp -vers=2 192.168.0.1:C:/users/somebody/foo /foo
+	
+NOTE: For the path to mount, i.e. the Windows path the case does not matter.   For the UNIX mount pount it does.
+		  
+As the example suggets this implementation only supoorts NFS v2 over UDP.
+
+It supports the reading & writing of files and importantly the creation of symbolic links on UNIX.  Files can be manipulated from both the UNIX and Windows sides and updates will appear.
+
+Symbolic Links are simply implemented by the NFS server creating a file named <file>.sl of which the content is the name of the file to link to.  These can be created by hand on the Windows side:-)
+
+No development has occurred since more or less the completing the implementation hence it takes no advantage of > C#/.NET 1 features and NFS supports remains at V2 when it looks like it's now at V4.  In the migration to github I have however updated the copyright and Open Sourced it according to the CodeProject license as I intend to write an CP article about this sometime soon.
+The solution and projects have also been migrated to VS2010.
+
+Somebody might find this is useful as a reference or fill a short-term gap so I decided to Open Source it.

@@ -1,3 +1,11 @@
+//
+// NFS Server
+//
+// Copyright (c) 2004-2012 Pete Barber
+//
+// Licensed under the The Code Project Open License (CPOL.html)
+// http://www.codeproject.com/info/cpol10.aspx 
+//
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
@@ -6,12 +14,12 @@ using System.Runtime.CompilerServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
-[assembly: AssemblyTitle("")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("mountV1")]
+[assembly: AssemblyDescription("mountd")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCompany("Pete Barber")]
+[assembly: AssemblyProduct("NFS Server")]
+[assembly: AssemblyCopyright("Copyright © Pete Barber 2004-2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]		
 
